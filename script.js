@@ -1,7 +1,6 @@
 // DOM Reference and manipulation script
 const boxesContainer = document.getElementById('boxesContainer');
 
-
 // ===== Heading =====
 const title = document.createElement('h1');
 title.textContent = 'JavaScript (DOM) Practice.';
@@ -212,3 +211,151 @@ darkStyle.textContent = `
   }
 `;
 document.head.appendChild(darkStyle);
+
+// ===== Solar System Weight Calculator =====
+const solarCalcTitle = document.createElement('h1');
+solarCalcTitle.innerText = 'Mini Project Solar System';
+solarCalcTitle.style.textAlign = 'center';
+solarCalcTitle.style.marginTop = '40px';
+boxesContainer.appendChild(solarCalcTitle);
+
+// === Calculator container ===
+const solarCalcContainer = document.createElement('div');
+solarCalcContainer.className = 'solar-calc-container';
+boxesContainer.appendChild(solarCalcContainer);
+
+// Input field
+const weightInput = document.createElement('input');
+weightInput.type = 'number';
+weightInput.placeholder = 'Enter mass (kg)';
+weightInput.className = 'solar-input';
+solarCalcContainer.appendChild(weightInput);
+
+// Dropdown
+const planetSelect = document.createElement('select');
+planetSelect.className = 'solar-select';
+
+const planets = [
+  { name: 'MERCURY', gravity: 3.7, image: 'mercury.jpg' },
+  { name: 'VENUS', gravity: 8.87, image: 'venus.jpg' },
+  { name: 'EARTH', gravity: 9.81, image: 'earth.jpg' },
+  { name: 'MOON', gravity: 1.62, image: 'moon.jpg' },
+  { name: 'MARS', gravity: 3.71, image: 'mars.jpg' },
+  { name: 'JUPITER', gravity: 24.79, image: 'jupiter.jpg' },
+  { name: 'SATURN', gravity: 10.44, image: 'saturn.jpg' },
+  { name: 'URANUS', gravity: 8.69, image: 'uranus.jpg' },
+  { name: 'NEPTUNE', gravity: 11.15, image: 'neptune.jpg' },
+  { name: 'PLUTO', gravity: 0.62, image: 'pluto.jpg' }
+];
+
+planets.forEach(p => {
+  const option = document.createElement('option');
+  option.value = p.name;
+  option.textContent = p.name;
+  planetSelect.appendChild(option);
+});
+solarCalcContainer.appendChild(planetSelect);
+
+// Button
+const calcBtn = document.createElement('button');
+calcBtn.textContent = 'Calculate weight';
+calcBtn.className = 'solar-btn';
+solarCalcContainer.appendChild(calcBtn);
+
+// Result area
+const resultContainer = document.createElement('div');
+resultContainer.className = 'result-container';
+boxesContainer.appendChild(resultContainer);
+
+// Calculate Logic
+calcBtn.addEventListener('click', () => {
+  const mass = parseFloat(weightInput.value);
+  const planetName = planetSelect.value;
+  const selectedPlanet = planets.find(p => p.name === planetName);
+
+  if (!mass || isNaN(mass)) {
+    alert('Please enter a valid mass!');
+    return;
+  }
+
+  const weight = (mass * selectedPlanet.gravity).toFixed(2);
+
+  resultContainer.innerHTML = `
+    <div class="planet-image-box">
+      <img src="images/${selectedPlanet.image}" class="planet-image" alt="${planetName}">
+    </div>
+    <div class="weight-box">
+      <p>The weight of the object on <strong>${planetName}</strong></p>
+      <div class="weight-result">${weight} N</div>
+    </div>
+  `;
+});
+
+const solarCalcStyle = document.createElement('style');
+solarCalcStyle.textContent = `
+  .solar-calc-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .solar-input, .solar-select, .solar-btn {
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+
+  .solar-btn {
+    background-color: #ff8888;
+    color: white;
+    cursor: pointer;
+  }
+  .result-container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+    text-align: center;
+    color: #fff;
+  }
+
+  .planet-image-box {
+    flex-basis: 300px;
+  }
+
+  .planet-image {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.2);
+  }
+
+  .weight-box {
+    font-size: 18px;
+    flex-basis: 300px;
+  }
+
+  .weight-result {
+    font-size: 32px;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #00ffcc;
+  }
+
+  body {
+    background-image: url('images/stars-bg.jpg');
+    background-size: cover;
+    background-repeat: repeat;
+    background-attachment: fixed;
+  }
+`;
+document.head.appendChild(solarCalcStyle);

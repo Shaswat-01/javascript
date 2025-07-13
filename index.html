@@ -65,13 +65,20 @@
     }
 
     .box {
-      padding: 12px 18px;
-      background-color: #ff8888;
-      color: white;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 20px;
-    }
+  padding: 12px 18px;
+  background-color: #ff8888;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 8px;
+  display: inline-block;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.box:hover {
+  background-color: #ff5a5a;
+}
   </style>
 </head>
 <body>
@@ -80,9 +87,13 @@
     <a href="#Manipulating DOM">Manipulating DOM</a>
     <a href="#Event Listeners">Event Listeners</a>
   </nav>
- <div id="boxesContainer"></div>
 
-  <script src="script.js"></script>
+<div id="boxesContainer"></div>
+
+
+ <script src="countries_data.js"></script>
+
+ <script src="script.js"></script>
 
 </body>
 </html>
