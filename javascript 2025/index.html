@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JavaScript DOM Practice</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #fff6f6;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ff6464;
+    }
+
+    p {
+      text-align: center;
+      font-size: 25px;
+      line-height: 60px;
+    }
+
+    nav.NN {
+      display: flex;
+      justify-content: center;
+      gap: 100px;
+      font-size: 30px;
+      margin-bottom: 45px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #ff6464;
+    }
+
+    #container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      background-color: #ff6464;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #e65353;
+    }
+
+    .box {
+  padding: 12px 18px;
+  background-color: #ff8888;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 8px;
+  display: inline-block;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.box:hover {
+  background-color: #ff5a5a;
+}
+  </style>
+</head>
+<body>
+  <nav class="NN">
+    <a href="#DOM Practice">DOM Practice</a>
+    <a href="#Manipulating DOM">Manipulating DOM</a>
+    <a href="#Event Listeners">Event Listeners</a>
+  </nav>
+
+<div id="boxesContainer"></div>
+
+
+ <script src="countries_data.js"></script>
+
+ <script src="script.js"></script>
+
+</body>
+</html>

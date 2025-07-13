@@ -1,0 +1,90 @@
+     body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      background-color: #fff6f6;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ff6464;
+      margin-top: 35px;
+    }
+
+    p {
+      text-align: center;
+      font-size: 21px;
+      line-height: 50px;
+      color: #040404;
+    }
+
+    nav.NN {
+      display: flex;
+      justify-content: center;
+      gap: 90px;
+      font-size: 22px;
+      margin-bottom: 40px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #ff6464;
+    }
+
+    #container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 220px;
+    }
+
+    button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      background-color: #ff6464;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #e65353;
+    }
+
+    .box {
+      padding: 12px 18px;
+      background-color: #ff8888;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .box:hover {
+      background-color: #ff5a5a;
+    }
+
+    #clearBtn {
+      background-color: #333;
+    }
+
+    #clearBtn:hover {
+      background-color: #111;
+    }
+
+    #boxesContainer {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
