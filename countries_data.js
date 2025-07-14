@@ -233,104 +233,73 @@ fetchCountries().then(data => {
  
 // ===== World Countries Data List (add more if you want) =====
 const countriesData = [
-  { name: 'Afghanistan'},
-  { name: 'Albania' },
-  { name: 'Algeria' },
-  { name: 'Andorra' },
-  { name: 'Angola' },
-  { name: 'Argentina' },
-  { name: 'Armenia' },
-  { name: 'Australia' },
-  { name: 'Austria' },
-  { name: 'Azerbaijan' },
-  { name: 'Bahamas' },
-  { name: 'Bahrain' },
-  { name: 'Bangladesh' },
-  { name: 'Barbados' },
-  { name: 'Belarus' },
-  { name: 'Belgium' },
-  { name: 'Belize' },
-  { name: 'Benin' },
-  { name: 'Bhutan' },
-  { name: 'Bolivia' },
-  { name: 'Bosnia and Herzegovina' },
-  { name: 'Botswana' },
-  { name: 'Brazil' },
-  { name: 'Brunei' },
-  { name: 'Bulgaria' },
-  { name: 'Burkina Faso' },
-  { name: 'Burundi' },
-  { name: 'Cambodia' },
-  { name: 'Cameroon' },
-  { name: 'Canada' },
-  { name: 'Cape Verde' },
-  { name: 'Central African Republic' },
-  { name: 'Chad' },
+  { name: 'Afghanistan', flag: 'https://flagcdn.com/af.svg' },
+  { name: 'Albania', flag: 'https://flagcdn.com/al.svg' },
+  { name: 'Algeria', flag: 'https://flagcdn.com/dz.svg' },
+  { name: 'Andorra', flag: 'https://flagcdn.com/ad.svg' },
+  { name: 'Angola', flag: 'https://flagcdn.com/ao.svg' },
+  { name: 'Argentina', flag: 'https://flagcdn.com/ar.svg' },
+  { name: 'Armenia', flag: 'https://flagcdn.com/am.svg' },
+  { name: 'Australia', flag: 'https://flagcdn.com/au.svg' },
+  { name: 'Austria', flag: 'https://flagcdn.com/at.svg' },
+  { name: 'Azerbaijan', flag: 'https://flagcdn.com/az.svg' },
+  { name: 'Bahamas', flag: 'https://flagcdn.com/bs.svg' },
+  { name: 'Bahrain', flag: 'https://flagcdn.com/bh.svg' },
+  { name: 'Bangladesh', flag: 'https://flagcdn.com/bd.svg' },
+  { name: 'Barbados', flag: 'https://flagcdn.com/bb.svg' },
+  { name: 'Belarus', flag: 'https://flagcdn.com/by.svg' },
+  { name: 'Belgium', flag: 'https://flagcdn.com/be.svg' },
+  { name: 'Belize', flag: 'https://flagcdn.com/bz.svg' },
+  { name: 'Benin', flag: 'https://flagcdn.com/bj.svg' },
+  { name: 'Bhutan', flag: 'https://flagcdn.com/bt.svg' },
+  { name: 'Bolivia', flag: 'https://flagcdn.com/bo.svg' },
+  { name: 'Bosnia and Herzegovina', flag: 'https://flagcdn.com/ba.svg' },
+  { name: 'Botswana', flag: 'https://flagcdn.com/bw.svg' },
+  { name: 'Brazil', flag: 'https://flagcdn.com/br.svg' },
+  { name: 'Brunei', flag: 'https://flagcdn.com/bn.svg' },
+  { name: 'Bulgaria', flag: 'https://flagcdn.com/bg.svg' },
+  { name: 'Burkina Faso', flag: 'https://flagcdn.com/bf.svg' },
+  { name: 'Burundi', flag: 'https://flagcdn.com/bi.svg' },
+  { name: 'Cambodia', flag: 'https://flagcdn.com/kh.svg' },
+  { name: 'Cameroon', flag: 'https://flagcdn.com/cm.svg' },
+  { name: 'Canada', flag: 'https://flagcdn.com/ca.svg' },
+  { name: 'Cape Verde', flag: 'https://flagcdn.com/cv.svg' },
+  { name: 'Central African Republic', flag: 'https://flagcdn.com/cf.svg' },
+  { name: 'Chad', flag: 'https://flagcdn.com/td.svg' }
 ];
 
-// ====== Create Countries Container ======
-const countriesWrapper = document.createElement('div');
-countriesWrapper.id = 'countriesWrapper';
-boxesContainer.appendChild(countriesWrapper);
-
-// ====== Generate Country Cards ======
 countriesData.forEach(country => {
-  const countryCard = document.createElement('div');
-  countryCard.className = 'country-card';
+  const card = document.createElement('div');
+  card.style.display = 'inline-block';
+  card.style.margin = '10px';
+  card.style.padding = '20px';
+  card.style.textAlign = 'center';
+  card.style.background = '#ff8888';
+  card.style.borderRadius = '12px';
+  card.style.backdropFilter = 'blur(4px)';
+  card.style.boxShadow = '0 4px 10px rgba(0,0,0,0.3)';
+  card.style.color = 'white';
+  card.style.width = '140px';
 
-  const flag = document.createElement('img');
-  flag.src = `https://flagsapi.com/${country.name.toUpperCase()}/flat/64.png`;
-  flag.alt = `${country.name} Flag`;
-  flag.className = 'flag-img';
+  const img = document.createElement('img');
+  img.src = country.flag;
+  img.alt = country.name;
+  img.style.width = '80px';
+  img.style.height = 'auto';
+  img.style.borderRadius = '8px';
+  img.style.marginBottom = '0px';
+  img.style.boxShadow = '0 0 10px rgba(255,255,255,0.2)';
 
   const name = document.createElement('p');
-  name.className = 'country-name';
-  name.textContent = country.name.toUpperCase();
+  name.textContent = country.name;
+  name.style.margin = '0';
+  name.style.fontWeight = 'bold';
+  name.style.fontSize = '12px';
 
-  countryCard.appendChild(flag);
-  countryCard.appendChild(name);
-  countriesWrapper.appendChild(countryCard);
+  card.appendChild(img);
+  card.appendChild(name);
+  boxesContainer.appendChild(card);
 });
-
-// ====== Styling via JS ======
-const style = document.createElement('style');
-style.textContent = `
-  #countriesWrapper {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 20px;
-    margin-top: 40px;
-    padding: 20px;
-  }
-
-  .country-card {
-   background-color: #ff8888;
-    border-radius: 12px;
-    padding: 15px 10px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-
-  .country-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-  }
-
-  .flag-img {
-    width: 64px;
-    height: 42px;
-    object-fit: cover;
-    margin-bottom: 10px;
-  }
-
-  .country-name {
-    font-size: 14px;
-    font-weight: bold;
-    color: #222;
-    margin: 0;
-  }
-`;
 document.head.appendChild(style);
 
 document.head.appendChild(countryStyle);
